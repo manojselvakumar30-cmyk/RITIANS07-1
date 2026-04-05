@@ -13,9 +13,8 @@ const app = express();
 app.use(cors()); // Allow requests from frontend (different port / origin)
 app.use(express.json()); // Parse incoming JSON bodies
 const path = require("path");
-app.use(express.static(path.join(__dirname, "..", "public")));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+app.use(express.static(__dirname));
+res.sendFile(path.join(__dirname, "index.html"));
 });
 const MAPS_API_KEY = 'AIzaSyAI4IB0sZzUYKtWp8QLQfVVurCYXqROtvo';
 
